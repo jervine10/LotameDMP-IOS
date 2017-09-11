@@ -32,7 +32,7 @@ import Alamofire
 /**
     The Lotame Data Management Platform
 */
-@objc
+@objcMembers
 open class DMP:NSObject{
     /**
     LotameDMP is a singleton.  Calls should be made to the class functions, which
@@ -51,7 +51,7 @@ open class DMP:NSObject{
     */
     open static var advertisingId: String?{
         if trackingEnabled{
-            return ASIdentifierManager.shared()?.advertisingIdentifier?.uuidString
+            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
         }else{
             return nil
         }
@@ -78,7 +78,7 @@ open class DMP:NSObject{
     Tracking is enabled only if advertising id is enabled on the user's device
     */
     open static var trackingEnabled: Bool{
-        return ASIdentifierManager.shared()?.isAdvertisingTrackingEnabled == true
+        return ASIdentifierManager.shared().isAdvertisingTrackingEnabled == true
     }
     
     /**
